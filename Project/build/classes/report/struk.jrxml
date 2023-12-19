@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="198" pageHeight="425" columnWidth="187" leftMargin="6" rightMargin="5" topMargin="33" bottomMargin="33">
+	<property name="ireport.zoom" value="2.5937424601000036"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="192"/>
+	<parameter name="no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     detail_transaksi.`ID_Transaksi` AS detail_transaksi_ID_Transaksi,
+     detail_transaksi.`Jenis_Pembayaran` AS detail_transaksi_Jenis_Pembayaran,
+     detail_transaksi.`Harga_Sewa` AS detail_transaksi_Harga_Sewa,
+     detail_transaksi.`Lama_Sewa` AS detail_transaksi_Lama_Sewa,
+     detail_transaksi.`Total_Harga` AS detail_transaksi_Total_Harga,
+     kamar.`ID_Kamar` AS kamar_ID_Kamar,
+     kamar.`Nomor_Kamar` AS kamar_Nomor_Kamar,
+     kamar.`Jenis_Kamar` AS kamar_Jenis_Kamar,
+     kamar.`Harga` AS kamar_Harga,
+     kamar.`Status` AS kamar_Status,
+     transaksi.`ID_Transaksi` AS transaksi_ID_Transaksi,
+     transaksi.`ID_Penyewa` AS transaksi_ID_Penyewa,
+     transaksi.`ID_Kamar` AS transaksi_ID_Kamar,
+     transaksi.`Jenis_Kamar` AS transaksi_Jenis_Kamar,
+     transaksi.`Tanggal_Masuk` AS transaksi_Tanggal_Masuk,
+     transaksi.`Tanggal_Keluar` AS transaksi_Tanggal_Keluar,
+     transaksi.`Status` AS transaksi_Status,
+     transaksi.`Tanggal_Pembayaran` AS transaksi_Tanggal_Pembayaran,
+     penyewa.`ID_Penyewa` AS penyewa_ID_Penyewa,
+     penyewa.`NIK` AS penyewa_NIK,
+     penyewa.`Nama_Penyewa` AS penyewa_Nama_Penyewa,
+     penyewa.`NoTelp_Penyewa` AS penyewa_NoTelp_Penyewa,
+     penyewa.`NoTelp_Ortu_Penyewa` AS penyewa_NoTelp_Ortu_Penyewa,
+     penyewa.`Asal_Penyewa` AS penyewa_Asal_Penyewa,
+     penyewa.`Universitas_Penyewa` AS penyewa_Universitas_Penyewa
+FROM
+     `kamar` kamar INNER JOIN `transaksi` transaksi ON kamar.`ID_Kamar` = transaksi.`ID_Kamar`
+     INNER JOIN `detail_transaksi` detail_transaksi ON transaksi.`ID_Transaksi` = detail_transaksi.`ID_Transaksi`
+     INNER JOIN `penyewa` penyewa ON transaksi.`ID_Penyewa` = penyewa.`ID_Penyewa`
+where transaksi.ID_Transaksi = $P{no}]]>
+	</queryString>
+	<field name="detail_transaksi_ID_Transaksi" class="java.lang.Integer"/>
+	<field name="detail_transaksi_Jenis_Pembayaran" class="java.lang.String"/>
+	<field name="detail_transaksi_Harga_Sewa" class="java.lang.Double"/>
+	<field name="detail_transaksi_Lama_Sewa" class="java.lang.Integer"/>
+	<field name="detail_transaksi_Total_Harga" class="java.lang.Double"/>
+	<field name="kamar_ID_Kamar" class="java.lang.Integer"/>
+	<field name="kamar_Nomor_Kamar" class="java.lang.String"/>
+	<field name="kamar_Jenis_Kamar" class="java.lang.String"/>
+	<field name="kamar_Harga" class="java.math.BigDecimal"/>
+	<field name="kamar_Status" class="java.lang.String"/>
+	<field name="transaksi_ID_Transaksi" class="java.lang.Integer"/>
+	<field name="transaksi_ID_Penyewa" class="java.lang.Integer"/>
+	<field name="transaksi_ID_Kamar" class="java.lang.Integer"/>
+	<field name="transaksi_Jenis_Kamar" class="java.lang.String"/>
+	<field name="transaksi_Tanggal_Masuk" class="java.sql.Date"/>
+	<field name="transaksi_Tanggal_Keluar" class="java.sql.Date"/>
+	<field name="transaksi_Status" class="java.lang.String"/>
+	<field name="transaksi_Tanggal_Pembayaran" class="java.sql.Date"/>
+	<field name="penyewa_ID_Penyewa" class="java.lang.Integer"/>
+	<field name="penyewa_NIK" class="java.lang.String"/>
+	<field name="penyewa_Nama_Penyewa" class="java.lang.String"/>
+	<field name="penyewa_NoTelp_Penyewa" class="java.lang.String"/>
+	<field name="penyewa_NoTelp_Ortu_Penyewa" class="java.lang.String"/>
+	<field name="penyewa_Asal_Penyewa" class="java.lang.String"/>
+	<field name="penyewa_Universitas_Penyewa" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="49" y="-10" width="95" height="78"/>
+				<imageExpression><![CDATA["C:\\Users\\ASUS\\Downloads\\Eco Home Furnishing Logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="45" y="38" width="96" height="11"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[KOST PUTRI 'WIJAYANTI']]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="49" width="154" height="19"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jalan Mastrip II No.73 Sumbersari, Jember]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="58" width="47" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[0811350514]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="44" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Kode struk :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="81" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tanggal pembayaran :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="62" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nomor kamar :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="34" width="62" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nama penyewa :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="1" width="53" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksi_ID_Transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="12" width="39" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaksi_Tanggal_Pembayaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="24" width="67" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kamar_Nomor_Kamar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="35" width="67" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penyewa_Nama_Penyewa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="35" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Kamar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="3" width="35" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="3" width="43" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Lama Sewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="3" width="35" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="187" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="16" width="187" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="35" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kamar_Jenis_Kamar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="38" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kamar_Harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="0" width="29" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_transaksi_Lama_Sewa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="144" y="0" width="43" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_transaksi_Total_Harga}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="161" splitType="Stretch">
+			<staticText>
+				<reportElement x="94" y="21" width="30" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="32" width="81" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jenis Pembayaran :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="5" width="187" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="86" y="10" width="34" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Subtotal :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="126" y="11" width="61" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rp  "+$F{kamar_Harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="33" width="61" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_transaksi_Jenis_Pembayaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="22" width="61" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rp  "+$F{detail_transaksi_Total_Harga}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="51" y="64" width="100" height="17"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128B" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{detail_transaksi_ID_Transaksi}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement x="82" y="80" width="26" height="10"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_transaksi_ID_Transaksi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="43" y="105" width="100" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[---TERIMA KASIH---]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="129" width="100" height="9"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Catatan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="137" width="187" height="23"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Harap simpan struk ini dengan baik dan jangan sampai hilang. Hubungi kami jika Anda memiliki pertanyaan atau keluhan terkait pembayaran atau fasilitas kost.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
